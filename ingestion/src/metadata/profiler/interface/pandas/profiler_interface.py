@@ -32,7 +32,7 @@ from metadata.profiler.metrics.core import MetricTypes
 from metadata.profiler.metrics.registry import Metrics
 from metadata.profiler.processor.sampler.sampler_factory import sampler_factory_
 from metadata.readers.dataframe.models import DatalakeTableSchemaWrapper
-from metadata.utils.constants import COMPLEX_COLUMN_SEPARATOR
+from metadata.utils.constants import COMPLEX_COLUMN_SEPARATOR, SAMPLE_DATA_DEFAULT_COUNT
 from metadata.utils.datalake.datalake_utils import fetch_col_types, fetch_dataframe
 from metadata.utils.logger import profiler_interface_registry_logger
 from metadata.utils.sqa_like_column import SQALikeColumn
@@ -59,7 +59,7 @@ class PandasProfilerInterface(ProfilerInterface, PandasInterfaceMixin):
         table_partition_config,
         thread_count: int = 5,
         timeout_seconds: int = 43200,
-        sample_data_count: int = 100,
+        sample_data_count: int = SAMPLE_DATA_DEFAULT_COUNT,
         **kwargs,
     ):
         """Instantiate Pandas Interface object"""
